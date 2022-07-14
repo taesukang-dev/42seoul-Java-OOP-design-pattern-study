@@ -1,0 +1,9 @@
+- 디자인 패턴과 그 용어
+	- 용어를 정리하며 예제를 위주로
+- 객체지향 원칙(SOLID)과 그 용어
+	- 용어를 정리하며 예제를 위주로
+- 다형성, 캡슐화, 추상화 등등...
+	- subclassing
+	- subtyping
+	- ...etc
+	- interface vs abstract class
