@@ -1,6 +1,10 @@
-# Java OOP, Design pattern Study
+# Java OOP, Design Pattern Study
+
+<br />
 
 ## Mentor : Eunjong Park @42Seoul
+
+<br />
 
 | chapter | topic | date |
 | :-------: | :-----: | :----: |
