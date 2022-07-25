@@ -22,25 +22,29 @@ class Ethiopia extends Americano {
 }
 
 abstract class Decorations extends Americano {
+    Americano americano;
+
+    public Decorations(Americano americano) {
+        this.americano = americano;
+    }
+
     public abstract String getName();
 }
 
 class Milk extends Decorations{
-    Americano americano;
     String name = "Milk";
     public Milk(Americano americano) {
-        this.americano = americano;
+        super(americano);
     }
     public String getName() {
         return americano.getName() + " adding " + name;
     }
 }
 class MochaSyrup extends Decorations {
-    Americano americano;
     String name = "Mocha Syrup ";
 
     public MochaSyrup(Americano americano) {
-        this.americano = americano;
+        super(americano);
     }
 
     public String getName() {
@@ -51,14 +55,13 @@ class MochaSyrup extends Decorations {
 class WhippedCream extends Decorations {
 
     String name = "Whipped Cream";
-    Decorations decorations;
 
-    public WhippedCream(Decorations decorations) {
-        this.decorations = decorations;
+    public WhippedCream(Americano americano) {
+        super(americano);
     }
 
     public String getName() {
-        return decorations.getName() + " adding " + name;
+        return americano.getName() + " adding " + name;
     }
 }
 
