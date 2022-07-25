@@ -36,14 +36,30 @@ class Milk extends Decorations{
     }
 }
 class MochaSyrup extends Decorations {
-    Decorations decorations;
+
+    Americano americano = null;
+    Decorations decorations = null;
     String name = "Mocha Syrup";
+
+    public MochaSyrup(Americano americano, Decorations decorations) {
+        this.americano = americano;
+        this.decorations = decorations;
+    }
+
+    public MochaSyrup(Americano americano) {
+        this.americano = americano;
+    }
 
     public MochaSyrup(Decorations decorations) {
         this.decorations = decorations;
     }
+
     public String getName() {
-        return decorations.getName() + " adding " + name;
+        if (americano == null)
+            return decorations.getName() + " adding " + name;
+        if (decorations == null)
+            return americano.getName() + " adding " + name;
+        return americano.getName() + decorations.getName() + " adding " + name;
     }
 }
 
@@ -68,9 +84,9 @@ public class DecoratorPattern {
         // EtiopiaAmericano Adding Milk Adding Mocha Syrup Adding WhippedCream
         Kenya k = new Kenya();
         Ethiopia e = new Ethiopia();
-        Milk m = new Milk(e);
-        MochaSyrup ms = new MochaSyrup(m);
-        WhippedCream wc = new WhippedCream(ms);
-        System.out.println(wc.getName());
+        Milk m = new Milk(k);
+        WhippedCream wc = new WhippedCream(m);
+        MochaSyrup ms = new MochaSyrup(e, m);
+        System.out.println(ms.getName());
     }
 }

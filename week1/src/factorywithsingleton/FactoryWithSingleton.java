@@ -32,7 +32,7 @@ class CarTest {
     private static Car grandeur = new Grandeur();
     private static Car genesis = new Genesis();
 
-    public Car getInstance(String name) {
+    public Car getInstance(String name) { // prototype
         if( name.equalsIgnoreCase("Sonata")) {
             if (instance instanceof Sonata)
                 return instance;
@@ -54,7 +54,7 @@ class CarTest {
         return instance;
     }
 
-    public Car getInstance2(String name) {
+    public Car getInstance2(String name) { // singleton
         if( name.equalsIgnoreCase("Sonata")) {
             return sonata;
         }
