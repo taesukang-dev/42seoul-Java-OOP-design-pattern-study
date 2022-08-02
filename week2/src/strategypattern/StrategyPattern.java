@@ -86,19 +86,9 @@ class Student {
     int studentID;
     String studentName;
     ArrayList<Subject> subjectList;
-    private MajorStrategy ms;
-    private MinorStrategy bs;
 
     public static final int BASIC = 0;
     public static final int MAJOR = 1;
-
-    public void setMs(MajorStrategy ms) {
-        this.ms = ms;
-    }
-
-    public void setBs(MinorStrategy bs) {
-        this.bs = bs;
-    }
 
     public Student(int studentID, String studentName) {
         this.studentID = studentID;
@@ -128,8 +118,6 @@ class Student {
 public class StrategyPattern {
     public static void main(String[] args) {
         Student studentLee = new Student(1001, "Lee");
-        studentLee.setBs(new MinorStrategy());
-        studentLee.setMs(new MajorStrategy());
         studentLee.addSubject("국어", 100, false);
         studentLee.addSubject("수학", 100, true);
 
@@ -137,8 +125,6 @@ public class StrategyPattern {
         studentKim.addSubject("국어", 55, true);
         studentKim.addSubject("수학", 55, false);
         studentKim.addSubject("영어", 100, false);
-        studentKim.setBs(new MinorStrategy());
-        studentKim.setMs(new MajorStrategy());
 
         studentLee.showGradeInfo();
         studentKim.showGradeInfo();
