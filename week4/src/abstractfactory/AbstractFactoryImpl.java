@@ -2,6 +2,7 @@ package abstractfactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.Properties;
 
 class UserInfo {
@@ -168,11 +169,11 @@ class ProductOracleDao extends ProductDao {
 
 public class AbstractFactoryImpl {
     public static void main(String[] args) throws IOException {
-//        FileInputStream fis = new FileInputStream("absolute path");
-//        Properties prop = new Properties();
-//        prop.load(fis);
-//        String dbType = prop.getProperty("DBTYPE");
-        String dbType = "MYSQL";
+        FileInputStream fis = new FileInputStream("/Users/gangtaesu/Desktop/42seoul-Java-OOP-design-pattern-study/week4/src/abstractfactory/db.properties");
+        Properties prop = new Properties();
+        prop.load(fis);
+        String dbType = prop.getProperty("DBTYPE");
+
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId("12345");
         userInfo.setPasswd("!@#$%");
@@ -196,12 +197,15 @@ public class AbstractFactoryImpl {
             System.out.println("db support error");
             return;
         }
+
         userInfoDao = daoFactory.createUserInfoDao();
         productDao = daoFactory.createProductDao();
+
         System.out.println("==USERINFO TRANSACTION==");
         userInfoDao.insertUserInfo(userInfo);
         userInfoDao.updateUserInfo(userInfo);
         userInfoDao.deleteUserInfo(userInfo);
+
         System.out.println("==PRODUCT TRANSACTION==");
         productDao.insertProduct(product);
         productDao.updateProduct(product);
